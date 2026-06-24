@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quang Tran | ENC 1101 ePortfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --wood-light: #F5EDD8;
+    --wood-mid: #D4B896;
+    --wood-dark: #8B6343;
+    --wood-deep: #5C3D1E;
+    --cream: #FAF6EE;
+    --ink: #2C1E0F;
+    --ink-muted: #6B4F35;
+    --ink-faint: #A0836A;
+    --border: rgba(139, 99, 67, 0.18);
+    --border-strong: rgba(139, 99, 67, 0.35);
+    --radius: 4px;
+    --radius-lg: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+    border-bottom: 0.5px solid var(--border-strong);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--wood-deep);
+    letter-spacing: 0.02em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--wood-deep); }
+
+  /* HERO */
+  .hero {
+    background: var(--wood-light);
+    border-bottom: 0.5px solid var(--border-strong);
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 400;
+    color: var(--wood-deep);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--ink-muted);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+  }
+  .hero-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--wood-dark);
+    margin: 0 auto;
+    opacity: 0.5;
+  }
+
+  /* SECTION BASE */
+  section {
+    padding: 5rem 2rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--wood-deep);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  /* COVER LETTER */
+  .cover-body {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.85;
+  }
+  .cover-body p { margin-bottom: 1.25rem; }
+  .cover-sig {
+    margin-top: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--wood-dark);
+  }
+
+  /* OUTCOMES */
+  .outcome-block {
+    border-left: 2px solid var(--wood-mid);
+    padding: 1.75rem 0 1.75rem 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .outcome-number {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.25rem;
+  }
+  .outcome-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--wood-deep);
+    margin-bottom: 0.5rem;
+  }
+  .outcome-subtitle {
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .outcome-body {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+  .outcome-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .pill {
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 0.5px solid var(--border-strong);
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .pill:hover {
+    background: var(--wood-light);
+    color: var(--wood-deep);
+  }
+
+  /* MY WORK (ESSAYS) */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+  .work-card {
+    background: var(--wood-light);
+    border: 0.5px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+  }
+  .work-tag {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.5rem;
+  }
+  .work-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--wood-deep);
+    margin-bottom: 0.6rem;
+    line-height: 1.35;
+  }
+  .work-desc {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    margin-bottom: 1.1rem;
+  }
+
+  /* ARTIFACTS */
+  .artifact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .artifact-row {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.25rem;
+    background: var(--wood-light);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+  .artifact-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--wood-mid);
+    min-width: 2rem;
+    padding-top: 2px;
+  }
+  .artifact-info { flex: 1; }
+  .artifact-kind {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.2rem;
+  }
+  .artifact-name {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--wood-deep);
+    margin-bottom: 0.35rem;
+  }
+  .artifact-desc {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+
+  /* REFLECTIONS */
+  .reflection-block {
+    background: var(--wood-light);
+    border: 0.5px solid var(--border-strong);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .reflection-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.5rem;
+  }
+  .reflection-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--wood-deep);
+    margin-bottom: 1rem;
+  }
+  .reflection-body {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.82;
+  }
+  .reflection-body p { margin-bottom: 1rem; }
+  .reflection-body p:last-child { margin-bottom: 0; }
+
+  /* FINAL REFLECTION */
+  .final-quote {
+    border-left: 3px solid var(--wood-dark);
+    padding: 1rem 0 1rem 1.5rem;
+    margin: 2rem 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--wood-dark);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--wood-light);
+    border-top: 0.5px solid var(--border-strong);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+  }
+
+  /* DIVIDER */
+  .section-sep {
+    border: none;
+    border-top: 0.5px solid var(--border);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Quang Tran</span>
+  <ul class="nav-links">
+    <li><a href="#cover">About</a></li>
+    <li><a href="#outcomes">Outcomes</a></li>
+    <li><a href="#work">My Work</a></li>
+    <li><a href="#artifacts">Artifacts</a></li>
+    <li><a href="#reflections">Reflections</a></li>
+    <li><a href="#final">Final</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-eyebrow">ENC 1101 &nbsp;·&nbsp; First-Year Composition &nbsp;·&nbsp; UCF</p>
+  <h1>The Writer I Am<br>Still Becoming</h1>
+  <p class="hero-sub">A semester of writing, reflection, and learning to find my voice between two languages.</p>
+  <div class="hero-divider"></div>
+</div>
+
+<!-- COVER LETTER -->
+<section id="cover">
+  <p class="section-label">Testimonio</p>
+  <h2 class="section-title">A Letter to My Reader</h2>
+  <div class="cover-body">
+    <p>My name is Quang Tran, and I am a Mechanical Engineering student at UCF. When I registered for ENC 1101, I thought writing was simply something I needed to pass — a course requirement, nothing more. I did not expect it to change how I see myself.</p>
+    <p>I grew up speaking Vietnamese at home and learning English at school. For a long time, writing in English felt like translating from one world to another — the meaning gets lost somewhere in the crossing. I knew what I wanted to say, but the page would come out blank, or the words would arrive sounding like someone else. I was, in my own description, putting soulless words together.</p>
+    <p>This ePortfolio is my record of what changed this semester. It holds three major essays, six artifacts, two reflections, and a final piece I am proud of. Together, they show that I am no longer just trying to finish an assignment. I am trying to say something real.</p>
+    <p>If you take one thing from this portfolio, I hope it is this: the experience of not quite finding the words is not a sign that you do not belong on the page. It is proof that something real is at stake. That is exactly what makes writing worth it.</p>
+  </div>
+  <p class="cover-sig">— Quang Tran, June 2026</p>
+</section>
+
+<hr class="section-sep" />
+
+<!-- OUTCOMES -->
+<section id="outcomes">
+  <p class="section-label">Learning Outcomes</p>
+  <h2 class="section-title">Six Things I Learned to Do</h2>
+
+  <!-- LO 1 -->
+  <div class="outcome-block">
+    <p class="outcome-number">Outcome 01</p>
+    <h3 class="outcome-title">Writing Processes &amp; Adaptation</h3>
+    <p class="outcome-subtitle">Students will be able to describe and reflect on writing processes in order to flexibly adapt them to support their goals.</p>
+    <p class="outcome-body">
+      My writing process used to be: open a blank document, stare at it, panic, write something, and submit. This semester I learned that a writing process is something you can actually design. In my Essay 1 Brainstorming artifact, I explored two different topic ideas before settling on literacy and bilingualism — a deliberate choice, not a default. In Reflection 1, I set an honest goal: to become more fluent and stop writing just to finish. In Essay 3, I described my process in full detail — how I draft in Google Docs with comments to myself, how I return to sentences and read them aloud in my head, how the first draft is me figuring out what I think, and the second is me trying to put it into others' words. Adapting my process made every essay stronger than the one before.
+    </p>
+    <div class="outcome-links">
+      <span class="pill">Essay 1 Brainstorming</span>
+      <span class="pill">Essay 1: How to Balance Two Languages</span>
+      <span class="pill">Reflection 1</span>
+      <span class="pill">Essay 3: The Writer I Am Still Becoming</span>
+    </div>
+  </div>
+
+  <!-- LO 2 -->
+  <div class="outcome-block">
+    <p class="outcome-number">Outcome 02</p>
+    <h3 class="outcome-title">Multiple Literacies &amp; Goal Setting</h3>
+    <p class="outcome-subtitle">Students will be able to demonstrate how they marshal their multiple literacies — speaking, listening, reading, multilingual writing — to support their writing processes.</p>
+    <p class="outcome-body">
+      Being bilingual is not a disadvantage. It took me most of this semester to believe that. In Essay 1, I wrote about what it meant to balance English and Vietnamese — how reading a Canvas assignment felt harder than any textbook because the vocabulary was embedded in an academic context I was still entering. In Reading Response 1, I connected to Anzaldúa's idea that language is identity, not just communication. I do not speak Chicano Spanish, but I know what it feels like to be outside of a language community, to read words you recognize but not fully inhabit. My goal for this class — to write with more fluency and let my voice through — is a goal I am still working toward, but I am measurably closer.
+    </p>
+    <div class="outcome-links">
+      <span class="pill">Essay 1: How to Balance Two Languages</span>
+      <span class="pill">Reading Response 1 (Anzaldúa)</span>
+      <span class="pill">Essay 3: The Writer I Am Still Becoming</span>
+    </div>
+  </div>
+
+  <!-- LO 3 -->
+  <div class="outcome-block">
+    <p class="outcome-number">Outcome 03</p>
+    <h3 class="outcome-title">Variation Across Contexts</h3>
+    <p class="outcome-subtitle">Students will be able to identify, analyze, and reflect on variation in rhetorical and linguistic patterns from a range of contexts — cultural, digital, academic, and workplace.</p>
+    <p class="outcome-body">
+      In Reading Response 2, I analyzed a real rhetorical situation from my own life: calming an upset customer at work. I identified myself as the rhetor, the customer as my audience, and the exigence as the pressure of a public and time-constrained setting. I also noted how language itself was a constraint — it is harder to express precision and calm in English under pressure when you think primarily in Vietnamese. Essay 2, "Lost in Translation," extended this into analyzing a short-form video, where I examined how rhetorical choices like emotional contrast, pathos, and visual tone work differently in digital media than in written essays. Context changes everything — the tone of an email to a professor, the words used with a customer, the music behind a 60-second video.
+    </p>
+    <div class="outcome-links">
+      <span class="pill">Reading Response 2 (Work Situation)</span>
+      <span class="pill">Essay 2: Lost in Translation</span>
+      <span class="pill">Essay 2 Questionnaire</span>
+    </div>
+  </div>
+
+  <!-- LO 4 -->
+  <div class="outcome-block">
+    <p class="outcome-number">Outcome 04</p>
+    <h3 class="outcome-title">Decision Making &amp; Production</h3>
+    <p class="outcome-subtitle">Students will be able to produce writing that demonstrates their ability to navigate choices and constraints when writing for specific audiences, genres, and purposes.</p>
+    <p class="outcome-body">
+      Every essay this semester involved a different set of decisions. For Essay 1, I chose to write about literacy through personal experience rather than abstract definition — because I knew that specificity would keep my reader with me. For Essay 2, I chose a short YouTube video instead of a long documentary because the short form matched the emotional speed of its argument. For Essay 3, I decided not to play it safe. I included personal details I would have cut before. I wrote imperfect sentences that were genuinely mine. The Essay 2 Questionnaire artifact shows this decision-making process in real time, as I worked through which video to choose and what my analysis goals were before I began writing.
+    </p>
+    <div class="outcome-links">
+      <span class="pill">Essay 1: How to Balance Two Languages</span>
+      <span class="pill">Essay 2: Lost in Translation</span>
+      <span class="pill">Essay 2 Questionnaire</span>
+      <span class="pill">Essay 3: The Writer I Am Still Becoming</span>
+    </div>
+  </div>
+
+  <!-- LO 5 -->
+  <div class="outcome-block">
+    <p class="outcome-number">Outcome 05</p>
+    <h3 class="outcome-title">Writing and Power</h3>
+    <p class="outcome-subtitle">Students will be able to critically examine and act on the relationship between identity, literacy, language, and power.</p>
+    <p class="outcome-body">
+      Anzaldúa's line — "I am my language" — is the sentence I keep returning to. In Reading Response 1, I wrote that being told your accent or pronunciation is "wrong" feels like being told you yourself are wrong. That is not a grammatical issue. That is power. In Essay 2, I wrote about the daughter who translates for her immigrant mother, and how that act of translating — giving someone a voice in a language they don't have — is an act of both care and burden. In Essay 3, I named my own experience directly: the gap between Vietnamese and English is not a weakness in my writing. It is the source of my most deliberate choices as a writer. Writing about this changed how I see the relationship between language and identity — not as a problem to solve, but as a perspective to use.
+    </p>
+    <div class="outcome-links">
+      <span class="pill">Reading Response 1 (Anzaldúa)</span>
+      <span class="pill">Essay 2: Lost in Translation</span>
+      <span class="pill">Essay 3: The Writer I Am Still Becoming</span>
+    </div>
+  </div>
+
+  <!-- LO 6 -->
+  <div class="outcome-block">
+    <p class="outcome-number">Outcome 06</p>
+    <h3 class="outcome-title">Revision</h3>
+    <p class="outcome-subtitle">Students will be able to negotiate differences in and act with intention on feedback when drafting, revising, and editing their writing.</p>
+    <p class="outcome-body">
+      The most visible evidence of revision in this portfolio is the pair of Essay 1 drafts. The Essay 1 Rough Draft is a structured outline — it has a hook, thesis, body points, and a conclusion placeholder. The final essay, "How to Balance Two Languages," is a fully developed piece with specific scenes: the moment I first logged into Canvas, the word "rubric" that confused me, the email I learned to write differently. In Reflection 2, I identified wording as an area to improve after Essay 2 — I felt my sentences were too long and not precise enough. That feedback shaped how I wrote Essay 3. Similarly, the Essay 2 Rough Draft shows how my writing evolved from a point-by-point outline into a fluent analysis. Revision, for me, is not just editing sentences. It is returning to a piece and asking what I actually meant to say.
+    </p>
+    <div class="outcome-links">
+      <span class="pill">Essay 1 Rough Draft</span>
+      <span class="pill">Essay 1: How to Balance Two Languages</span>
+      <span class="pill">Reflection 2</span>
+      <span class="pill">Essay 2 Rough Draft</span>
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep" />
+
+<!-- MY WORK (ESSAYS) -->
+<section id="work">
+  <p class="section-label">Major Writing Assignments</p>
+  <h2 class="section-title">Three Essays</h2>
+  <div class="work-grid">
+
+    <div class="work-card">
+      <p class="work-tag">Essay 1 &nbsp;·&nbsp; Literacy Narrative</p>
+      <h3 class="work-title">How to Balance Two Languages</h3>
+      <p class="work-desc">A personal narrative about what it means to be literate as a bilingual student — exploring moments like first reading a Canvas assignment, learning what a rubric really is, and discovering how writing changes depending on audience and context.</p>
+      <p class="pill">Literacy &nbsp;·&nbsp; Bilingualism &nbsp;·&nbsp; Personal Narrative</p>
+    </div>
+
+    <div class="work-card">
+      <p class="work-tag">Essay 2 &nbsp;·&nbsp; Rhetorical Analysis</p>
+      <h3 class="work-title">Lost in Translation</h3>
+      <p class="work-desc">A rhetorical analysis of a short YouTube video depicting a bilingual daughter who must translate for her immigrant mother — including news of her mother's illness. Examines how pathos, emotional contrast, sound, and visual pacing construct the argument.</p>
+      <p class="pill">Rhetoric &nbsp;·&nbsp; Pathos &nbsp;·&nbsp; Immigration</p>
+    </div>
+
+    <div class="work-card">
+      <p class="work-tag">Essay 3 &nbsp;·&nbsp; Writer's Identity</p>
+      <h3 class="work-title">The Writer I Am Still Becoming</h3>
+      <p class="work-desc">A reflective essay examining the identity of a writer who is careful, bilingual, sometimes hesitant, and always trying to make his thoughts clear. Explores the gap between thinking in Vietnamese and writing in English, and why that gap has become a strength.</p>
+      <p class="pill">Identity &nbsp;·&nbsp; Voice &nbsp;·&nbsp; Reflection</p>
+    </div>
+
+  </div>
+
+  <!-- Draft progression callout -->
+  <div class="reflection-block">
+    <p class="reflection-label">Revision Journey &nbsp;·&nbsp; Essay 1 &amp; Essay 2</p>
+    <h3 class="reflection-title">From Outline to Essay</h3>
+    <div class="reflection-body">
+      <p>For both Essay 1 and Essay 2, this portfolio includes the full drafting process: from early brainstorming and rough drafts through to the final submission. The Essay 1 Brainstorming artifact shows me weighing two topic ideas before committing. The rough draft of Essay 1 is a structured outline with thesis and body points. The final essay is a fully developed narrative with specific, grounded scenes.</p>
+      <p>For Essay 2, the rough draft is a detailed plan: an introduction, three body point summaries, and a link to the video. The final essay transforms that plan into a flowing rhetorical analysis. Comparing drafts to finals shows not just improvement in sentences, but a deepening of ideas — more specificity, more confidence, and a stronger sense of what I actually wanted to say.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep" />
+
+<!-- ARTIFACTS -->
+<section id="artifacts">
+  <p class="section-label">Writing Artifacts</p>
+  <h2 class="section-title">Six Pieces of Evidence</h2>
+  <div class="artifact-list">
+
+    <div class="artifact-row">
+      <span class="artifact-num">01</span>
+      <div class="artifact-info">
+        <p class="artifact-kind">Brainstorming &nbsp;·&nbsp; Pre-writing</p>
+        <p class="artifact-name">Essay 1 Brainstorming</p>
+        <p class="artifact-desc">Two topic ideas explored before writing Essay 1: reading a Nintendo Switch User Manual for the first time, and cutting supermarket coupons from a newspaper at my mom's instruction. I chose this artifact because it shows how the writing process starts before a single sentence is written — in the act of deciding what is worth saying. It also shows my early thinking about what literacy really means, which evolved into the final essay.</p>
+      </div>
+    </div>
+
+    <div class="artifact-row">
+      <span class="artifact-num">02</span>
+      <div class="artifact-info">
+        <p class="artifact-kind">Reading Response &nbsp;·&nbsp; In-class Writing</p>
+        <p class="artifact-name">Reading Response 1 — Anzaldúa, "How to Tame a Wild Tongue"</p>
+        <p class="artifact-desc">A personal response to Gloria Anzaldúa's essay on language and identity. I wrote about what her line "I am my language" meant to me — connecting her experience of Chicano Spanish to my own experience of Vietnamese and English. I chose this artifact because it was the first time I felt I was writing from a place of genuine understanding rather than summary. It also helped me see my bilingualism as something worth writing about, not around.</p>
+      </div>
+    </div>
+
+    <div class="artifact-row">
+      <span class="artifact-num">03</span>
+      <div class="artifact-info">
+        <p class="artifact-kind">Reading Response &nbsp;·&nbsp; Rhetorical Situation</p>
+        <p class="artifact-name">Reading Response 2 — Rhetorical Situation at Work</p>
+        <p class="artifact-desc">An analysis of a real rhetorical situation I navigated at work — calming an upset customer after a misunderstanding. I identified myself as the rhetor, analyzed the exigence, audience, and constraints (including the language constraint of needing to stay calm and precise in English under pressure). I chose this artifact because it proved that rhetoric is not just something in essays — it is something I use daily, in high-stakes moments, in a second language.</p>
+      </div>
+    </div>
+
+    <div class="artifact-row">
+      <span class="artifact-num">04</span>
+      <div class="artifact-info">
+        <p class="artifact-kind">Rough Draft &nbsp;·&nbsp; Process Writing</p>
+        <p class="artifact-name">Essay 1 Rough Draft — "What Literacy Means to Me"</p>
+        <p class="artifact-desc">A structured draft with a hook, thesis, two body paragraphs, and a conclusion placeholder. I chose this alongside the final essay to show how much a piece can grow. The rough draft has the right ideas but has not yet found the specific scenes — the Canvas moment, the rubric confusion — that make the final essay vivid. The distance between these two versions is where revision happened.</p>
+      </div>
+    </div>
+
+    <div class="artifact-row">
+      <span class="artifact-num">05</span>
+      <div class="artifact-info">
+        <p class="artifact-kind">Rough Draft &nbsp;·&nbsp; Process Writing</p>
+        <p class="artifact-name">Essay 2 Rough Draft — "Lost in Translation"</p>
+        <p class="artifact-desc">A planning draft for Essay 2 consisting of a strong introduction, three labeled body paragraph summaries, and the link to the YouTube video analyzed. I chose this because it shows how I organize before I write — I plan the argument first, then build the sentences. Comparing this to the finished essay shows how an outline becomes analysis: the same ideas, but with evidence, rhetorical vocabulary, and a cleaner argument structure.</p>
+      </div>
+    </div>
+
+    <div class="artifact-row">
+      <span class="artifact-num">06</span>
+      <div class="artifact-info">
+        <p class="artifact-kind">Questionnaire &nbsp;·&nbsp; Pre-writing</p>
+        <p class="artifact-name">Essay 2 Questionnaire</p>
+        <p class="artifact-desc">A pre-writing questionnaire where I defined rhetoric in my own words, described the goal of rhetorical analysis, and brainstormed three possible video topics (language barriers, AI and jobs, student life comparisons). I chose this artifact because it captures me thinking out loud — deciding what matters to me before I commit to a direction. It also shows that I chose my Essay 2 topic because it connected to my own experience, not just because it was easy to analyze.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-sep" />
+
+<!-- REFLECTIONS -->
+<section id="reflections">
+  <p class="section-label">Reflections</p>
+  <h2 class="section-title">Looking Back, Moving Forward</h2>
+
+  <div class="reflection-block">
+    <p class="reflection-label">Reflection 1 &nbsp;·&nbsp; Start of Semester</p>
+    <h3 class="reflection-title">Who I Am as a Writer — and What I Want to Become</h3>
+    <div class="reflection-body">
+      <p>At the beginning of this semester, I wrote that writing meant putting thoughts onto paper, planning, sharing experiences, and questioning what I could do to be better tomorrow. I also said the hardest part was getting my ideas to flow — that I often thought in Vietnamese and had to translate back into English, and that something always got lost in that crossing.</p>
+      <p>My goal for the course was specific: to become more fluent, to write letters and paragraphs better, and — this part surprised me when I wrote it — to learn how to make jokes in English. I think what I meant was that I wanted to feel natural on the page. Not just correct. Natural.</p>
+      <p>I also defined all six student learning outcomes in my own words in this reflection. Looking back at those definitions, they were accurate — but they were abstract. By the end of the semester, I have examples. That is the difference between knowing a definition and having lived through it.</p>
+    </div>
+  </div>
+
+  <div class="reflection-block">
+    <p class="reflection-label">Reflection 2 &nbsp;·&nbsp; After Essay 2</p>
+    <h3 class="reflection-title">What Essay 2 Taught Me</h3>
+    <div class="reflection-body">
+      <p>For my second essay, I started by watching the video closely and making sure I understood the main argument before writing anything. I found that I write better when I understand what I am analyzing — because then the paragraphs organize themselves around specific examples rather than around a vague summary.</p>
+      <p>One success: I chose a topic that felt personally meaningful. Because the video was about a child translating for her immigrant mother, I could connect to it. I have been in that daughter's position more than once. That connection made the analysis feel like something I actually had something to say about, not just something to complete.</p>
+      <p>One area to improve: my wording. I felt my sentences were sometimes too long and not precise enough. Going into Essay 3, I told myself to be more direct — to say the thing, not the long way around the thing. I think that reflection helped. Essay 3 is the most honest writing I have done this semester, and it is also the most concise.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep" />
+
+<!-- FINAL REFLECTION -->
+<section id="final">
+  <p class="section-label">Final Reflection</p>
+  <h2 class="section-title">The Writer I Am Still Becoming</h2>
+
+  <div class="cover-body">
+    <p>I started this semester believing that writing was something I did for grades. I finished it believing it is something I do to understand myself.</p>
+
+    <div class="final-quote">
+      "The goal of writing is not to sound impressive. But to be heard by others."
+    </div>
+
+    <p>That line is from Essay 3, and I mean it. This semester I learned that every writing decision — the topic, the tone, the sentence structure, the evidence chosen — is a decision about how much of yourself you are willing to put on the page. I spent most of my earlier writing hiding. Keeping everything generic because I was afraid of being judged, afraid that what I had to say was not academically enough.</p>
+
+    <p>What changed? Partly the assignments, which pushed me toward specificity. Partly the feedback, which told me when I was being vague. But mostly it was the act of writing about myself — Essay 1, Essay 3, both reflections — and discovering that my experience as a bilingual student from Vietnam was not a weakness to write around. It was the material.</p>
+
+    <p>The six student learning outcomes this semester gave me a vocabulary for what I was already doing without realizing it. Writing Processes — I have one now, not just a panic response. Multiple Literacies — I use Vietnamese and English as tools, not competitors. Variation Across Contexts — I know that the email to a professor, the words with a customer, and the message to a friend are three different acts of communication. Decision Making — I make deliberate choices now, not defaults. Writing and Power — I have lived it, and I have written about it. Revision — I now see revision not as fixing mistakes but as finding what I actually meant to say.</p>
+
+    <p>My bilingual gap — the space between what I think in Vietnamese and what I can write in English — has not disappeared. But it has changed. It has become what makes me careful. What makes me reread sentences. What makes me ask: does this actually sound like me?</p>
+
+    <p>I still have a long way ahead. But the evidence is in this portfolio: I am no longer just trying to finish. I am trying to deliver something real.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Quang Tran &nbsp;·&nbsp; ENC 1101 &nbsp;·&nbsp; University of Central Florida &nbsp;·&nbsp; Spring 2026</p>
+  <p style="margin-top: 0.4rem; font-size: 11px;">ePortfolio submitted June 23, 2026</p>
+</footer>
+
+</body>
+</html>
